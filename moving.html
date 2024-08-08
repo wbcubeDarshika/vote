@@ -1,0 +1,94 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Element</title>
+    <style>
+        #movable {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="movable"></div>
+    <button onclick="moveElement()">Move Right</button>
+
+    <script>
+        let position = 0;
+
+        function moveElement() {
+            position += 10;
+            const element = document.getElementById('movable');
+            element.style.left = position + 'px';
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Any Element</title>
+    <style>
+        .movable {
+            width: 70px;
+            height: 70px;
+           
+            position: absolute;
+            top: 200px;
+            left: 100px;
+        }
+        button{
+            border-radius: 6px;
+            background-color: darksalmon;
+        }
+        body{
+            background: url(  https://t3.ftcdn.net/jpg/03/27/73/02/360_F_327730237_O7dmVpw2Jux4cdmsPQ1zDSs1IACkLnWa.jpg) no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="movable" class="movable"><img src=" 1_WRGvP-mtCN9alwmh3WF8dw-removebg-preview.png" alt=""></div>
+    <br>
+    <button   onclick="moveElement('movable', 'left')">Move Left</button>
+    <button   onclick="moveElement('movable', 'right')">Move Right</button>
+    <button   onclick="moveElement('movable', 'up')">Move Up</button>
+    <button   onclick="moveElement('movable', 'down')">Move Down</button>
+
+    <script>
+        function moveElement(elementId, direction) {
+            const element = document.getElementById(elementId);
+            const currentLeft = parseInt(window.getComputedStyle(element).left, 10);
+            const currentTop = parseInt(window.getComputedStyle(element).top, 10);
+            const step = 10;  // Amount to move in pixels
+
+            switch (direction) {
+                case 'left':
+                    element.style.left = (currentLeft - step) + 'px';
+                    break;
+                case 'right':
+                    element.style.left = (currentLeft + step) + 'px';
+                    break;
+                case 'up':
+                    element.style.top = (currentTop - step) + 'px';
+                    break;
+                case 'down':
+                    element.style.top = (currentTop + step) + 'px';
+                    break;
+                default:
+                    break;
+            }
+        }
+         
+    </script>
+</body>
+</html>
